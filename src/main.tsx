@@ -1,14 +1,13 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import { PorscheDesignSystemProvider } from '@porsche-design-system/components-react';
-import { Example } from './Example.tsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { PorscheDesignSystemProvider } from "@porsche-design-system/components-react";
+import { DiscountCodeForm } from "./DiscountCodeForm.tsx";
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <PorscheDesignSystemProvider theme={'dark'}>
-      <Example />
+    <PorscheDesignSystemProvider theme={"light"}>
+      <DiscountCodeForm />
     </PorscheDesignSystemProvider>
   </StrictMode>
 );
