@@ -80,7 +80,7 @@ export function DiscountCodeForm() {
         }}
       ></PDivider>
 
-      <PHeading size="large">Does not lose state</PHeading>
+      <PHeading size="large">form with manual state tracking</PHeading>
       <form onSubmit={handleSubmit}>
         <PTextFieldWrapper label="Code" description="Does not lose state">
           <input
