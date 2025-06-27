@@ -16,11 +16,13 @@ export function DiscountCodeForm() {
   const [state, action] = useActionState(submitDiscountCode, {
     discountType: "",
     discountCode: "",
+    discountType2: "",
   });
 
   const [formState, setFormState] = useState({
     discountType: "",
     discountCode: "",
+    discountType2: "",
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -29,6 +31,7 @@ export function DiscountCodeForm() {
     const newFormValues = {
       discountType: formData.get("discountType") as string,
       discountCode: formData.get("discountCode") as string,
+      discountType2: formData.get("discountType2") as string,
     };
 
     setFormState(newFormValues);
@@ -48,6 +51,24 @@ export function DiscountCodeForm() {
       </PHeading>
 
       <form action={action}>
+        <label htmlFor="discountType2">
+          Discount type 2 (does not lose state):
+        </label>
+        <br />
+        <select
+          style={{
+            width: "100%",
+            maxWidth: "300px",
+          }}
+          name="discountType2"
+          key={`discountType2-${state.discountType2}`}
+          defaultValue={state.discountType2}
+        >
+          <option value="">Please select value</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+
         <PTextFieldWrapper label="Code" description="Does not lose state">
           <input
             type="text"
@@ -59,8 +80,8 @@ export function DiscountCodeForm() {
         <PSelect
           label="Discount type"
           name="discountType"
-          key="discountType"
           description="Loses state after clicking submit 2+ times"
+          key={`discountType-${state.discountType}`}
           value={state.discountType}
         >
           <PSelectOption value="A">A</PSelectOption>
